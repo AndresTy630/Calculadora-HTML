@@ -1,5 +1,3 @@
-)
-
 🧮 Descripción
 
 Este es un proyecto de una calculadora web básica hecha con HTML, CSS y JavaScript.
