@@ -1,114 +1,105 @@
 )
-🧮 Descripción del proyecto
 
-Este proyecto es una calculadora web básica desarrollada con HTML, CSS y JavaScript.
-Permite ingresar dos números, elegir un operador matemático (+, -, *, /) y obtener un resultado directamente en la página.
+🧮 Descripción
+
+Este es un proyecto de una calculadora web básica hecha con HTML, CSS y JavaScript.
+Permite realizar operaciones matemáticas simples.
 
 📂 Estructura del proyecto
+Archivos incluidos:
 
-El proyecto está compuesto por tres archivos:
+index.html
 
-index.html → Contiene la estructura de la calculadora.
+Aula-digital.css
 
-Aula-digital.css → Estilos visuales.
+Aula-digital.js
 
-Aula-digital.js → Lógica de la calculadora.
+🏗️ Código HTML
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula Digital</title>
+    <link rel="stylesheet" href="Aula-digital.css">
+</head>
+<body>
+    <main>
+        <h1 id="Titulo">CALCULADORA</h1>
 
-🏗️ Explicación del HTML
+        <div id="Cuadro">
+            <form action="" method="dialog">
+                <input type="text" class="txtCalculo" id="txtNumero1" placeholder="Ingrese numero 1">
+                <input type="text" class="txtCalculo" id="txtResultado" placeholder="+ - * /">
+                <input type="text" class="txtCalculo" id="txtNumero2" placeholder="Ingrese numero 2">
+                <input type="submit" class="txtCalculo" id="btnCalcular" value="Calcular">
+            </form>
+            <p id="Resultado"></p>
+        </div>
+    </main>
+    <script src="./Aula-digital.js"></script>
+</body>
+</html>
 
-El archivo HTML define la interfaz del usuario:
+🎨 Código CSS
+#Titulo{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: indigo;
+    text-align: center;
+}
 
-Un título principal (CALCULADORA).
+#Cuadro{
+    background-color: transparent;
+    width: 400px;
+    height: 200px;
+    border-radius: 1ch;
+    margin: auto;
+    margin-top: 20px;
+}
 
-Un contenedor <div> con tres campos:
-
-Número 1
-
-Operador (+, -, *, /)
-
-Número 2
-
-Un botón Calcular.
-
-Un <p> donde se muestra el resultado.
-
-<input type="text" id="txtNumero1">
-<input type="text" id="txtResultado">   <!-- acá se ingresa el operador -->
-<input type="text" id="txtNumero2">
-<input type="submit" id="btnCalcular" value="Calcular">
-<p id="Resultado"></p>
-
-
-El archivo también vincula el CSS y el JavaScript.
-
-🎨 Explicación del CSS
-
-Los estilos se enfocan en:
-
-Centrar el título y aplicar una tipografía agradable.
-
-Darle forma al cuadro de la calculadora (ancho, altura y bordes).
-
-Estilizar los inputs:
-
-Bordes redondeados.
-
-Espaciado entre elementos.
-
-Cambio de color al enfocarlos (:focus).
-
-Estilo para el texto del resultado.
-
-Ejemplo del estilo de un input:
-
-.txtCalculo {
+.txtCalculo{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: larger;
+    display: flex;
     border-radius: 6px;
+    text-align: left;
+    margin: auto;
     margin-bottom: 30px;
 }
 
-⚙️ Explicación del JavaScript
+.txtCalculo:focus{
+    outline: none;
+    border-color: blueviolet;
+}
 
-El JavaScript se encarga de realizar las operaciones matemáticas.
+#Resultado{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: black;
+    margin: auto;
+}
 
-Captura los elementos del HTML usando getElementById.
-
-Escucha el clic del botón Calcular.
-
-Toma:
-
-Número 1
-
-Operador
-
-Número 2
-
-Verifica que:
-
-El operador sea válido (+, -, *, /)
-
-Los valores ingresados sean números.
-
-Si todo está bien, realiza la operación usando un switch.
-
-Muestra el resultado en el <p id="Resultado">.
-
-Si hay un error, muestra “Calculo no posible” en rojo.
-
-Código principal:
+⚙️ Código JavaScript
+const txtNumero1 = document.getElementById("txtNumero1");
+const txtNumero2 = document.getElementById("txtNumero2");
+const txtOperador = document.getElementById("txtResultado");
+const btnCalcular = document.getElementById("btnCalcular");
+const pResultado = document.getElementById("Resultado");
 
 btnCalcular.addEventListener("click", Calcular);
 
-function Calcular() {
+function Calcular()
+{
     let Operador = txtOperador.value;
     let Numero = parseFloat(txtNumero1.value);
     let Numero2 = parseFloat(txtNumero2.value);
 
-    if ((Operador == "+" || Operador == "-" || Operador == "*" || Operador == "/") &&
-        (!isNaN(Numero) && !isNaN(Numero2))) {
-
+    if((Operador == "+" || Operador == "-" || Operador == "*" || Operador == "/") &&
+       (!isNaN(Numero) && !isNaN(Numero2)))
+    {
         let resultado;
-        switch (Operador) {
+        switch(Operador)
+        {
             case "+": resultado = Numero + Numero2; break;
             case "-": resultado = Numero - Numero2; break;
             case "*": resultado = Numero * Numero2; break;
@@ -124,22 +115,14 @@ function Calcular() {
     }
 }
 
-▶️ Cómo usarla
+▶️ Cómo usar la calculadora
 
-Ingresar un número en el primer campo.
+Ingresá un número en el primer campo
 
-Escribir un operador válido (+, -, *, /).
+Escribí un operador válido (+, -, *, /)
 
-Ingresar el segundo número.
+Ingresá el segundo número
 
-Hacer clic en Calcular.
+Presioná Calcular
 
-El resultado aparece debajo.
-
-📌 Extras posibles para mejorar (opcional)
-
-Validar que no se pueda dividir por cero.
-
-Cambiar el input del operador por un <select>.
-
-Estilizar el diseño para que sea más atractivo.
+Mirá el resultado debajo
